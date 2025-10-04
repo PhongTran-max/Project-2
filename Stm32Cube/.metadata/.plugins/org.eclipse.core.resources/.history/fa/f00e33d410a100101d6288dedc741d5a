@@ -254,8 +254,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim){
 			counter2 = 50;
 		}
 		break;
-	default:
-		break;
 	}
 
 }

@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  00016429  00000000  00000000  0002b030  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   000099e7  00000000  00000000  00041459  2**0
+ 17 .debug_line   000099e5  00000000  00000000  00041459  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00081f2a  00000000  00000000  0004ae40  2**0
+ 18 .debug_str    00081f2a  00000000  00000000  0004ae3e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000ccd6a  2**0
+ 19 .comment      00000053  00000000  00000000  000ccd68  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000025f8  00000000  00000000  000ccdc0  2**2
+ 20 .debug_frame  000025f8  00000000  00000000  000ccdbc  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -535,12 +535,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim){
  80003d0:	d002      	beq.n	80003d8 <HAL_TIM_PeriodElapsedCallback+0x40>
  80003d2:	2b01      	cmp	r3, #1
  80003d4:	d018      	beq.n	8000408 <HAL_TIM_PeriodElapsedCallback+0x70>
+			state = 0;
 			counter2 = 50;
 		}
 		break;
-	}
-
-}
+	default:
+		break;
  80003d6:	e032      	b.n	800043e <HAL_TIM_PeriodElapsedCallback+0xa6>
 		display7SEG(1);
  80003d8:	2001      	movs	r0, #1
@@ -603,6 +603,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim){
  800043a:	e000      	b.n	800043e <HAL_TIM_PeriodElapsedCallback+0xa6>
 		break;
  800043c:	bf00      	nop
+	}
+
 }
  800043e:	bf00      	nop
  8000440:	3708      	adds	r7, #8
