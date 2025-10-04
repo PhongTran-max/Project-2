@@ -662,9 +662,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim){
  80004c4:	4b07      	ldr	r3, [pc, #28]	; (80004e4 <HAL_TIM_PeriodElapsedCallback+0x7c>)
  80004c6:	2200      	movs	r2, #0
  80004c8:	601a      	str	r2, [r3, #0]
-		counter2 = 50;
+		counter2 = 25;
  80004ca:	4b04      	ldr	r3, [pc, #16]	; (80004dc <HAL_TIM_PeriodElapsedCallback+0x74>)
- 80004cc:	2232      	movs	r2, #50	; 0x32
+ 80004cc:	2219      	movs	r2, #25
  80004ce:	601a      	str	r2, [r3, #0]
 	}
 
