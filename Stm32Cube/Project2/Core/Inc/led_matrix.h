@@ -1,0 +1,15 @@
+/*
+ * led_matrix.h
+ *
+ *  Created on: Oct 4, 2025
+ *      Author: NCPC
+ */
+
+#ifndef INC_LED_MATRIX_H_
+#define INC_LED_MATRIX_H_
+
+#include "stm32f1xx_hal.h"
+
+void updateLEDMatrix(int index);
+
+#endif /* INC_LED_MATRIX_H_ */

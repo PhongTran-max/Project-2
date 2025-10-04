@@ -1,0 +1,72 @@
+/*
+ * led_matrix.c
+ *
+ *  Created on: Oct 4, 2025
+ *      Author: NCPC
+ */
+
+#include "led_matrix.h"
+#define MAX_LED_MATRIX 8
+
+uint8_t matrix_buffer[8] = {
+    0x00, // 00000000
+    0x00, // 00000000
+    0x7C, // 01111100
+    0x12, // 00010010
+    0x12, // 00010010
+    0x7C, // 01111100
+    0x00, // 00000000
+    0x00  // 00000000
+};
+int row_pin[8] = {
+	GPIO_PIN_8,
+	GPIO_PIN_9,
+	GPIO_PIN_10,
+	GPIO_PIN_11,
+	GPIO_PIN_12,
+	GPIO_PIN_13,
+	GPIO_PIN_14,
+	GPIO_PIN_15
+};
+
+void updateLEDMatrix(int index) {
+    HAL_GPIO_WritePin(GPIOA,
+        GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_10|GPIO_PIN_11|
+        GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15,
+        GPIO_PIN_SET);
+
+    uint8_t pattern = matrix_buffer[index];
+    for(int row=0; row<8; ++row){
+    	GPIO_PinState state = (pattern >> row) & 0x01? GPIO_PIN_SET : GPIO_PIN_RESET;
+    	HAL_GPIO_WritePin(GPIOB, row_pin[i], state);
+    }
+
+    switch(index) {
+        case 0:
+        	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_RESET);
+        	break;
+        case 1:
+        	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_RESET);
+        	break;
+        case 2:
+        	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);
+        	break;
+        case 3:
+        	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_RESET);
+        	break;
+        case 4:
+        	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_RESET);
+        	break;
+        case 5:
+        	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_13, GPIO_PIN_RESET);
+        	break;
+        case 6:
+        	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_14, GPIO_PIN_RESET);
+        	break;
+        case 7:
+        	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_15, GPIO_PIN_RESET);
+        	break;
+        default:
+        	break;
+    }
+}

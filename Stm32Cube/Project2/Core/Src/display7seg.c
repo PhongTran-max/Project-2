@@ -27,7 +27,7 @@ int seg_pin[7] = {
 	GPIO_PIN_4,
 	GPIO_PIN_5,
 	GPIO_PIN_6
-  };
+};
 
 int led_buffer[4] = {1, 2, 4, 5};
 
