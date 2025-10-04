@@ -104,7 +104,6 @@ int main(void)
 
   int index_led = 0;
   const int MAX_LED = 4;
-  updateClockBuffer();
   update7SEG(index_led++);
   setTimer(0, 100);
   setTimer(1, 25);
