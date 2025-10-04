@@ -19,7 +19,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "display7seg.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -91,7 +90,7 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, RESET);
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9, SET);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, SET);
   HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 

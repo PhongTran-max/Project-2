@@ -19,7 +19,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "display7seg.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -91,7 +90,7 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, RESET);
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9, SET);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, SET);
   HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
@@ -261,8 +260,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim){
 	case 2:
 		display7SEG(3);
 		if(counter2 <= 0){
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, RESET);
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8, SET);
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, RESET);
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, SET);
 			state = 3;
 			counter2 = 50;
 		}
@@ -271,7 +270,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim){
 		display7SEG(0);
 		if(counter2 <= 0){
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, RESET);
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9, SET);
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, SET);
 			state = 0;
 			counter2 = 50;
 		}
