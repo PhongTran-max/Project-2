@@ -72,7 +72,7 @@ void updateLEDMatrix(int index) {
 }
 
 void leftShift(){
-	uint8_t left = matrix_buffer[0];
+	unit8_t left = matrix_buffer[0];
 	for(int i=0; i<MAX_LED_MATRIX-1; ++i){
 		matrix_buffer[i] = matrix_buffer[i+1];
 	}

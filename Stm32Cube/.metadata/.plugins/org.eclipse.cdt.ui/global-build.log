@@ -122010,3 +122010,55 @@ Finished building: Project2.bin
  
 Finished building: Project2.list
  
+15:41:52 **** Incremental Build of configuration Debug for project Project2 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/led_matrix.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/led_matrix.d" -MT"Core/Src/led_matrix.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/led_matrix.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:155:20: error: expected ';' before '}' token
+  155 |     setTimer(3, 40)
+      |                    ^
+      |                    ;
+  156 |    }
+      |    ~                
+../Core/Src/led_matrix.c: In function 'leftShift':
+../Core/Src/led_matrix.c:75:2: error: unknown type name 'unit8_t'; did you mean 'uint8_t'?
+   75 |  unit8_t left = matrix_buffer[0];
+      |  ^~~~~~~
+      |  uint8_t
+make: *** [Core/Src/subdir.mk:43: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:43: Core/Src/led_matrix.o] Error 1
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+15:41:59 **** Incremental Build of configuration Debug for project Project2 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/led_matrix.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/led_matrix.d" -MT"Core/Src/led_matrix.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/led_matrix.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/led_matrix.c: In function 'leftShift':
+../Core/Src/led_matrix.c:75:2: error: unknown type name 'unit8_t'; did you mean 'uint8_t'?
+   75 |  unit8_t left = matrix_buffer[0];
+      |  ^~~~~~~
+      |  uint8_t
+make: *** [Core/Src/subdir.mk:43: Core/Src/led_matrix.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+15:42:14 **** Incremental Build of configuration Debug for project Project2 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/led_matrix.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/led_matrix.d" -MT"Core/Src/led_matrix.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/led_matrix.o"
+arm-none-eabi-gcc -o "Project2.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\VXLWorkspace\Project-2\Stm32Cube\Project2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Project2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Project2.elf
+ 
+arm-none-eabi-size   Project2.elf 
+arm-none-eabi-objdump -h -S  Project2.elf  > "Project2.list"
+arm-none-eabi-objcopy  -O ihex  Project2.elf  "Project2.hex"
+arm-none-eabi-objcopy  -O binary  Project2.elf  "Project2.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8184	    128	   1720	  10032	   2730	Project2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Project2.hex
+Finished building: Project2.bin
+ 
+ 
+Finished building: Project2.list
+ 

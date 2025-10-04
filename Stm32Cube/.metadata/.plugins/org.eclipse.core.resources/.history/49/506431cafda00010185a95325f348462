@@ -70,11 +70,3 @@ void updateLEDMatrix(int index) {
         	break;
     }
 }
-
-void leftShift(){
-	uint8_t left = matrix_buffer[0];
-	for(int i=0; i<MAX_LED_MATRIX-1; ++i){
-		matrix_buffer[i] = matrix_buffer[i+1];
-	}
-	matrix_buffer[MAX_LED_MATRIX-1] = left;
-}

@@ -112,7 +112,6 @@ int main(void)
   setTimer(0, 100);
   setTimer(1, 25);
   setTimer(2, 5);
-  setTimer(3, 40);
 
   HAL_GPIO_WritePin(GPIOA,
       GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_10|GPIO_PIN_11|
@@ -149,10 +148,6 @@ int main(void)
 		  updateLEDMatrix(index_led_matrix++);
 		  if(index_led_matrix >= 8) index_led_matrix = 0;
 		  setTimer(2, 5);
-	  }
-	  if(isTimerExpired(3)){
-		  leftShift();
-		  setTimer(3, 40);
 	  }
     /* USER CODE END WHILE */
 

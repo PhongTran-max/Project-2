@@ -11,6 +11,5 @@
 #include "stm32f1xx_hal.h"
 
 void updateLEDMatrix(int index);
-void leftShift();
 
 #endif /* INC_LED_MATRIX_H_ */
