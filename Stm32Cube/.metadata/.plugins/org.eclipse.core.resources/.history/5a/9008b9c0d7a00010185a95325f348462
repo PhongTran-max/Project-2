@@ -92,7 +92,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, RESET);
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9, SET);
-  update7SEG(0);
   HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
@@ -233,7 +232,7 @@ int counter1 = 100;
 int counter2 = 50;
 int state = 0;
 
-int index_led = 1;
+int index_led = 0;
 const int MAX_LED = 4;
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim){

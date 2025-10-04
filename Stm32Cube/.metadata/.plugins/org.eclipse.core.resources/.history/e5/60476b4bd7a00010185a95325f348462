@@ -43,7 +43,7 @@ int led_buffer[4] = {1, 2, 4, 5};
 		switch(index){
 		case 0:
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, RESET);
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9, SET);
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9, RESET);
 			display7SEG(led_buffer[0]);
 			break;
 		case 1:

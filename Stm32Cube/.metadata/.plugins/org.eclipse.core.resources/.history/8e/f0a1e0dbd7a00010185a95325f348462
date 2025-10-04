@@ -233,7 +233,7 @@ int counter1 = 100;
 int counter2 = 50;
 int state = 0;
 
-int index_led = 1;
+int index_led = 0;
 const int MAX_LED = 4;
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim){

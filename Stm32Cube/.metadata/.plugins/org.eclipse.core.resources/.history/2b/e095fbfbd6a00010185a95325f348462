@@ -92,7 +92,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, RESET);
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9, SET);
-  update7SEG(0);
   HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
@@ -232,10 +231,6 @@ static void MX_GPIO_Init(void)
 int counter1 = 100;
 int counter2 = 50;
 int state = 0;
-
-int index_led = 1;
-const int MAX_LED = 4;
-
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim){
 	counter1--;
 	counter2--;
@@ -244,10 +239,45 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim){
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_4);
 		counter1 = 100;
 	}
-	if(counter2 <= 0){
-		update7SEG(index_led++);
-		if(index_led >= MAX_LED) index_led = 0;
-		counter2 = 50;
+	switch(state){
+	case 0:
+		display7SEG(1);
+		if(counter2 <= 0){
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, RESET);
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6|GPIO_PIN_8|GPIO_PIN_9, SET);
+			state = 1;
+			counter2 = 50;
+		}
+		break;
+	case 1:
+		display7SEG(2);
+		if(counter2 <= 0){
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, RESET);
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_9, SET);
+			state = 2;
+			counter2 = 50;
+		}
+		break;
+	case 2:
+		display7SEG(3);
+		if(counter2 <= 0){
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, RESET);
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8, SET);
+			state = 3;
+			counter2 = 50;
+		}
+		break;
+	case 3:
+		display7SEG(0);
+		if(counter2 <= 0){
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, RESET);
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9, SET);
+			state = 0;
+			counter2 = 50;
+		}
+		break;
+	default:
+		break;
 	}
 
 }
