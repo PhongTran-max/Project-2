@@ -81,7 +81,7 @@ void leftShift(){
 
 void rightShift(){
 	uint8_t right = matrix_buffer[7];
-	for(int i=MAX_LED_MATRIX-1; i>0; --i){
+	for(int i=MAX_LED_MATRIX-1; i>0; ++i){
 		matrix_buffer[i] = matrix_buffer[i-1];
 	}
 	matrix_buffer[0] = right;

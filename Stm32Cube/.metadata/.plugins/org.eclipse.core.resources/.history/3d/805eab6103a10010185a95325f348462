@@ -152,7 +152,6 @@ int main(void)
 	  }
 	  if(isTimerExpired(3)){
 		  upShift();
-		  rightShift();
 		  setTimer(3, 40);
 	  }
     /* USER CODE END WHILE */

@@ -12,8 +12,5 @@
 
 void updateLEDMatrix(int index);
 void leftShift();
-void rightShift();
-void downShift();
-void upShift();
 
 #endif /* INC_LED_MATRIX_H_ */

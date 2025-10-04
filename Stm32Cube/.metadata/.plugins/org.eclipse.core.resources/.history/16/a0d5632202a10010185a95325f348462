@@ -79,26 +79,10 @@ void leftShift(){
 	matrix_buffer[MAX_LED_MATRIX-1] = left;
 }
 
-void rightShift(){
-	uint8_t right = matrix_buffer[7];
-	for(int i=MAX_LED_MATRIX-1; i>0; --i){
-		matrix_buffer[i] = matrix_buffer[i-1];
-	}
-	matrix_buffer[0] = right;
-}
-
 void downShift(){
 	for(int i=0; i<MAX_LED_MATRIX-1; ++i){
-		uint8_t bottom = (matrix_buffer[i] & 0xA0)>>7;
+		uint8_t bottom = (matrix_buffer[i] & 0x01);
 		matrix_buffer[i] = matrix_buffer[i] << 1;
-		matrix_buffer[i] = matrix_buffer[i] | bottom;
-	}
-}
-
-void upShift(){
-	for(int i=0; i<MAX_LED_MATRIX-1; ++i){
-		uint8_t top = (matrix_buffer[i] & 0x01);
-		matrix_buffer[i] = matrix_buffer[i] >> 1;
-		matrix_buffer[i] = matrix_buffer[i] | (top<<7);
+		matrix_buffer[i] = matrix_buffer[i] | (bottom<<7);
 	}
 }
